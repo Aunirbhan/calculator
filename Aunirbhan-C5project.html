@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<title>Unit C5 Project</title>
+<meta charset="utf-8">
+<meta name="author" content="Aunirbhan">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style>
+  body{
+    background-color: #98b6cf;
+  }
+
+  h1{
+    text-align: center;
+    font-size: 50px;
+    color: #655ea0;
+    font-family: 'Courier New', Courier, monospace;
+  }
+
+  table{
+    align-content: center;
+    text-align: center;
+    margin: 45px auto;
+    width: 275px;
+    height: 500px;
+    border: #8587ca solid 10px;
+  }
+  td, th {
+      width: 70px;
+      height: 90px;
+      font-size: 20px;
+      background-color: #c6c0ff;
+      font-family: 'Courier New', Courier, monospace;
+      background-color: #c6c0ff;
+  }
+  input{
+      width: 350px;
+      height: 90px;
+      font-size: 20px;
+      background-color: #c6c0ff;
+      font-family: 'Courier New', Courier, monospace;
+      background-color: #c6c0ff;
+      font-size: 30px;
+      text-align: center;
+  }
+
+  button {
+      width: 70px;
+      height: 90px;
+      font-size: 20px;
+      background-color: #c6c0ff;
+      font-family: 'Courier New', Courier, monospace;
+      background-color: #c6c0ff;
+  }
+
+</style>
+<script>
+  $(document).ready(function() {
+      var first;
+      var second;
+      var x;
+      var y;
+      var mem = 0;
+      var memplus;
+      var memminus;
+      var each;
+      var sub1;
+      var sub2;
+      var mult1;
+      var mult2;
+      var back;
+      var answer;
+      var sign;
+      var ex;
+      var ln;
+      var x1;
+      var percent;
+      var square;
+
+      $(".number").click(function() {
+          $("#pressed").append($(this).html());
+      });
+      $("#add").click(function() {
+          first = Number($("#pressed").html());
+          $("#pressed").html("");
+          each = 0
+          answer = first;
+      });
+      $("#subtract").click(function() {
+          sub1 = Number($("#pressed").html());
+          $("#pressed").html("");
+          each = 1
+          answer = sub1;
+      });
+      $("#multiply").click(function() {
+          mult1 = Number($("#pressed").html());
+          $("#pressed").html("");
+          each = 2
+          answer = mult1;
+      });
+      $("#divide").click(function() {
+          div1 = Number($("#pressed").html());
+          $("#pressed").html("");
+          each = 3
+          answer = div1;
+      });
+      $("#exp").click(function() {
+          exp1 = Number($("#pressed").html());
+          $("#pressed").html("");
+          each = 4;
+      });
+      $("#sign").click(function() {
+          var sign = $("#pressed").html();
+          $("#pressed").html(sign * -1);
+      });
+      $("#back").click(function() {
+          var back = $("#pressed").html().slice(0, -1);
+          $("#pressed").html(back);
+      });
+      $("#answer").click(function() {
+          $("#pressed").html(answer);
+      });
+      $("#randomB").click(function() {
+          $("#pressed").html(Math.random());
+      });
+      $("#mplus").click(function() {
+          memplus = Number($("#pressed").html());
+          mem += memplus;
+          $("#pressed").html("")
+      });
+      $("#mminus").click(function() {
+          memminus = Number($("#pressed").html());
+          mem -= memminus;
+          $("#pressed").html("")
+      });
+
+      $("#mrecall").click(function() {
+          Number($("#pressed").html(mem));
+      });
+
+      $("#ce").click(function() {
+          Number($("#pressed").html(""));
+          first = "";
+          second = "";
+          sub1 = "";
+          sub2 = "";
+          mult1 = "";
+          mult2 = "";
+          div1 = "";
+          div2 = "";
+          each = "";
+          answer = "";
+          $("#pressed").html("")
+      });
+      $("#mc").click(function(){
+        mem = 0;
+        $("#pressed").html("")
+        });
+      $("#x2").click(function() {
+          x2input = Number($("#pressed").html());
+          ans = x2input;
+          each = 17;
+      });
+      $("#square").click(function() {
+          square = Number($("#pressed").html());
+          ans = square;
+          each = 19;
+      });
+      $("#e").click(function() {
+          $("#pressed").html(Math.E);
+          ans = Math.E;
+      });
+      $("#ex").click(function() {
+          ex = Number($("#pressed").html());
+          $("#pressed").html("");
+          ans = ex;
+          each = 24;
+      });
+      $("#x1").click(function() {
+          x1 = Number($("#pressed").html());
+          each = 27;
+          answer = x1;
+      });
+      $("#percent").click(function() {
+          percent = Number($("#pressed").html());
+          each = 28;
+          answer = percent;
+      });
+      $("#equal").click(function() {
+          if (each == 0) {
+              second = Number($("#pressed").html());
+              $("#pressed").html(first + second);
+              answer = second;
+          }
+          else if (each == 1) {
+              sub2 = Number($("#pressed").html());
+              $("#pressed").html(sub1 - sub2);
+              answer = sub2;
+          }
+          else if (each == 2) {
+              mult2 = Number($("#pressed").html());
+              $("#pressed").html(mult1 * mult2);
+              answer = mult2;
+          }
+          else if (each == 3) {
+              div2 = Number($("#pressed").html());
+              $("#pressed").html(div1 / div2);
+              answer = div2;
+          } 
+          else if (each == 27) {
+              $("#pressed").html(1/x1);
+          }
+          else if (each == 28) {
+              $("#pressed").html(percent/100);
+          }
+          else if (each == 19) {
+              $("#pressed").html(Math.sqrt(square));
+          }
+      });
+      $("button").mousedown(function(){
+        $(this).css("background-color", "#8383E0")
+        });
+      $("button").mouseup(function(){
+        $(this).css("background-color", "#c6c0ff")
+        });
+      $("body").keydown(function(){
+        $(this).css("background-color", "#83B6E0")
+        });
+      $("body").keyup(function(){
+        $(this).css("background-color", "#b5cee2")
+        });
+  });
+</script>
+</head>
+
+<body>
+<h1>Calculator</h1>
+<table>
+    <tr>
+        <td colspan="5" id="display" value="0">
+          <p id="pressed"></p>
+        </td>
+    <tr>
+        <td> <button id="mc">MC</button></td>
+        <td> <button id="mrecall">MR</button></td>
+        <td> <button id="mplus">M+</button></td>
+        <td> <button id="mminus">M-</button></td>
+        <td> <button id="ce">CE</button></td>
+    </tr>
+    <tr>
+        <td> <button class="number">7</button></td>
+        <td> <button class="number">8</button></td>
+        <td> <button class="number">9</button></td>
+        <td> <button id="divide">&#247;</button></td>
+        <td> <button id="square">&#8730;x</button></td>
+
+    </tr>
+    <tr>
+        <td> <button class="number">4</button></td>
+        <td> <button class="number">5</button></td>
+        <td> <button class="number">6</button></td>
+        <td> <button id="multiply">x</button></td>
+        <td> <button id="percent">%</button></td>
+    </tr>
+    <tr>
+        <td> <button class="number">1</button></td>
+        <td> <button class="number">2</button></td>
+        <td> <button class="number">3</button></td>
+        <td> <button id="subtract">-</button></td>
+        <td> <button id="x1">1/x</button></td>
+    </tr>
+
+    <tr>
+        <td> <button class="number">0</button></td>
+        <td> <button class="number">.</button></td>
+         <td> <button id="sign">&#177;</button></td>
+        <td> <button id="add">+</button></td>
+        <td> <button id="equal">=</button></td>
+    </tr>
+</table>
+</body>
+</html>
